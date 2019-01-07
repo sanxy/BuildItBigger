@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,8 @@ import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 import com.sanxynet.displayjokeactivity.JokeActivity;
 
+import java.util.Objects;
+
 public class MainActivityFragment extends Fragment {
 
     public MainActivityFragment() {
@@ -29,10 +32,10 @@ public class MainActivityFragment extends Fragment {
     String LOG_TAG = "FREEDUBUG";
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        mPublisherInterstitialAd = new PublisherInterstitialAd(getContext());
+        mPublisherInterstitialAd = new PublisherInterstitialAd(Objects.requireNonNull(getContext()));
         mPublisherInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544~6300978111");
 
         mPublisherInterstitialAd.setAdListener(new AdListener() {
@@ -103,6 +106,7 @@ public class MainActivityFragment extends Fragment {
         if (!testFlag) {
             Context context = getActivity();
             Intent intent = new Intent(context, JokeActivity.class);
+            assert context != null;
             intent.putExtra(context.getString(R.string.app_name), loadedJoke);
 
             context.startActivity(intent);
