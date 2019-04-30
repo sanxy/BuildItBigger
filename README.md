@@ -169,8 +169,8 @@ Once you have a functioning project, consider adding more features to test your 
 
 ### License
 
-Copyright 2019 Yusuf Adefolahan
     
+    Copyright 2019 Yusuf Adefolahan
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
